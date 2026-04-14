@@ -1,3 +1,6 @@
+import { todoList } from "./data.ts";
 console.log("Hello World");
-export {};
+function addList(e) {
+    const newList = {};
+}
 //# sourceMappingURL=app.js.map
