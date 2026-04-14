@@ -1,8 +1,15 @@
-import { todoList } from "./data.ts";
+import type { todoList } from "./data";
+
 console.log("Hello World");
 
 function addList(e: Event) {
-    const newList: todoList = {
 
+
+    const newList: todoList = {
+        id: crypto.randomUUID(),
+        text: "",
+        isComplete: false
     }
+
+
 }
