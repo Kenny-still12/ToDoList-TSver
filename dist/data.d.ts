@@ -1,6 +1,2 @@
-export type todoList = {
-    id: string;
-    text: string;
-    isComplete: boolean;
-};
+export {};
 //# sourceMappingURL=data.d.ts.map
