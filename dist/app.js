@@ -16,11 +16,14 @@ form.addEventListener("submit", (e) => {
 function addList(listHolder) {
     const list = document.createElement("div");
     const listText = document.createElement("p");
+    const deletebtn = document.createElement("button");
     list.classList.add("list-holder");
+    deletebtn.innerHTML = "delete";
     if (typeof listHolder.text === "string") {
         listText.innerText = listHolder.text;
     }
     list.append(listText);
+    list.append(deletebtn);
     listContainer.append(list);
 }
 export {};

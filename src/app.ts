@@ -28,11 +28,16 @@ form!.addEventListener("submit", (e: Event) => {
 function addList(listHolder: todoList) {
     const list = document.createElement("div") as HTMLDivElement;
     const listText = document.createElement("p") as HTMLParagraphElement;
+    const deletebtn = document.createElement("button") as HTMLButtonElement;
     list.classList.add("list-holder");
+
+    deletebtn.innerHTML = "delete";
+
     if (typeof listHolder.text === "string") {
         listText.innerText = listHolder.text;
     }
 
     list.append(listText);
+    list.append(deletebtn);
     listContainer.append(list);
 }
