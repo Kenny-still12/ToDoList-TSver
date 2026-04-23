@@ -1,6 +1,5 @@
 // import type { todoList } from "./data";
 const form = document.querySelector("form");
-const submitbtn = document.querySelector(".add-btn");
 const input = document.querySelector(".input-list");
 const listContainer = document.querySelector(".list-container");
 const deleteBtn = document.querySelector(".delete-btn");
