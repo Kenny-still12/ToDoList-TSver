@@ -13,6 +13,7 @@ form.addEventListener("submit", (e) => {
         isComplete: false
     };
     addList(newList);
+    input.value = "";
 });
 function addList(listHolder) {
     const list = document.createElement("div");

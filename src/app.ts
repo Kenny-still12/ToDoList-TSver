@@ -23,7 +23,7 @@ form!.addEventListener("submit", (e: Event) => {
         isComplete: false
     }
     addList(newList);
-
+    input.value = "";
 });
 
 
