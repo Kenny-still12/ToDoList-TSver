@@ -14,6 +14,10 @@ type todoList = {
 form!.addEventListener("submit", (e: Event) => {
     e.preventDefault();
 
+    if (!isNotEmpty(input.value)) {
+        return;
+    }
+
     let todoText: string | undefined = input?.value;
 
     const newList: todoList = {
@@ -49,5 +53,12 @@ function addList(listHolder: todoList) {
     list.append(listText);
     list.append(deletebtn);
     listContainer.append(list);
+}
+
+function isNotEmpty(input: string | undefined): boolean {
+    if (typeof input !== "string" || input?.trim() === "") {
+        return false;
+    }
+    return true;
 }
 

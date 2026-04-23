@@ -5,6 +5,9 @@ const listContainer = document.querySelector(".list-container");
 const deleteBtn = document.querySelector(".delete-btn");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!isNotEmpty(input.value)) {
+        return;
+    }
     let todoText = input === null || input === void 0 ? void 0 : input.value;
     const newList = {
         id: crypto.randomUUID(),
@@ -33,6 +36,12 @@ function addList(listHolder) {
     list.append(listText);
     list.append(deletebtn);
     listContainer.append(list);
+}
+function isNotEmpty(input) {
+    if (typeof input !== "string" || (input === null || input === void 0 ? void 0 : input.trim()) === "") {
+        return false;
+    }
+    return true;
 }
 export {};
 //# sourceMappingURL=app.js.map
