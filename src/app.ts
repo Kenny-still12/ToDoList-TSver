@@ -4,6 +4,7 @@ const form = document.querySelector("form") as HTMLFormElement;
 const input = document.querySelector(".input-list") as HTMLInputElement;
 const listContainer = document.querySelector(".list-container") as HTMLDivElement;
 const deleteBtn = document.querySelector(".delete-btn") as HTMLButtonElement;
+const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 
 type todoList = {
     id: string,
@@ -14,10 +15,13 @@ type todoList = {
 form!.addEventListener("submit", (e: Event) => {
     e.preventDefault();
 
-    if (!isNotEmpty(input.value)) {
+    if (isEmpty(input.value)) {
+        clearErrorMsg();
+        renderErrorMessage();
         return;
     }
 
+    clearErrorMsg();
     let todoText: string | undefined = input?.value;
 
     const newList: todoList = {
@@ -31,6 +35,7 @@ form!.addEventListener("submit", (e: Event) => {
 
 
 function addList(listHolder: todoList) {
+
     const list = document.createElement("div") as HTMLDivElement;
     const listText = document.createElement("p") as HTMLParagraphElement;
     const deletebtn = document.createElement("button") as HTMLButtonElement;
@@ -55,10 +60,25 @@ function addList(listHolder: todoList) {
     listContainer.append(list);
 }
 
-function isNotEmpty(input: string | undefined): boolean {
+function isEmpty(input: string | undefined): boolean {
     if (typeof input !== "string" || input?.trim() === "") {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
+function renderErrorMessage() {
+    const errorMsg = document.createElement("p") as HTMLParagraphElement;
+    errorMsg.classList.add("error-msg");
+    errorMsg.textContent = "Text Should not be Empty!";
+
+    wrapper.append(errorMsg);
+
+}
+
+function clearErrorMsg() {
+    const errorMsg = document.querySelector(".error-msg") as HTMLParagraphElement;
+
+    if (!errorMsg) return;
+    errorMsg.remove();
+}
